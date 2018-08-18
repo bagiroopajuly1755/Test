@@ -8,5 +8,7 @@ import com.login.model.User;
 @Repository
 public interface  UserRepository extends CrudRepository<User, Long>{
 	
+	
+	
 
 }
