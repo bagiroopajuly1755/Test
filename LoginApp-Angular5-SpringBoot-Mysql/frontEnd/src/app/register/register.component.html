@@ -1,0 +1,40 @@
+<p>
+  register works!
+</p>
+
+
+<div class="container">
+<form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
+
+<div class="form-group" [ngClass]="{ 'has-error': f.submitted && !userName.valid }">
+<label for="userName"> Username </label>
+<input type="text" class="from-control" id="userName" name="userName" pattern="[^ @]*@[^ @]*"  
+[(ngModel)]="user.fullName" 
+#userName="ngModel" required />
+<div *ngIf="f.submitted && !userName.valid">The full Name is required</div>
+<div *ngIf="username.errors.pattern">
+            A valid email address is required
+          </div>
+</div>
+
+<div class="form-group" [ngClass]="{'has-error': f.submitted &&  !password.valid}">
+<label for="passWord"> PassWord</label>
+<input type="text" class="form-control" id="passWord" name="passWord" length="10" [(ngModel)]="user.passWord"
+#passWord="ngModel" required minlength="4">
+<div *ngIf="f.submitted && !passWord.valid"> 
+<div *ngIf="password.errors.required">
+            password is required.
+          </div>
+          <div *ngIf="password.errors.minlength">
+            password must be at least 4 characters long.
+          </div>
+          </div>
+
+</div>
+
+<div id="rememeber" class="checkbox"></div>
+
+<button class="btn btn-lg btn-primary" type="submit">submit </div>
+<button class="btn btn-cancel" type="button">Close </div>
+
+</div>
